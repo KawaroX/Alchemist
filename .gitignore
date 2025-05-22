@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+*.env
+
+# 本地配置文件
+config.json
+
+# 打包文件
+/dist/
+/build/
+*.spec
+
+# 虚拟环境
+venv/
+env/
+
+# 编辑器文件
+.idea/
+.vscode/
