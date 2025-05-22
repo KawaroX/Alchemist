@@ -279,7 +279,7 @@ def check_filename_filters(filename, include_keywords, exclude_keywords, regex_o
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("PDF转PNG")
+        self.title("Alchemist")
         self.geometry("980x820") 
 
         self.log_queue = queue.Queue()

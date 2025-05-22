@@ -20,3 +20,9 @@ env/
 .idea/
 .vscode/
 .DS_Store
+Alchemist.zip
+dist 2/Alchemist.app/Contents/Info.plist
+dist 2/Alchemist.app/Contents/_CodeSignature/CodeResources
+.gitignore
+dist 2/Alchemist.app/Contents/Resources/app_icon.icns
+dist 2/Alchemist.app/Contents/MacOS/Alchemist
