@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alchemist</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="app-header">
+        <h2>PDF转换</h2>
+        <button id="theme-toggle" class="theme-toggle-button">
+          <span class="icon"></span>
+        </button>
+      </header>
+
+      <form id="pdf-form">
+        <div class="tab-container">
+          <div class="tab-headers">
+            <button type="button" class="tab-button active" data-tab="file-paths">文件路径</button>
+            <button type="button" class="tab-button" data-tab="conversion-options">转换选项</button>
+            <button type="button" class="tab-button" data-tab="filter-options">筛选选项</button>
+          </div>
+
+          <div id="file-paths" class="tab-content active">
+            <fieldset>
+              <legend>文件路径</legend>
+              <div class="form-group">
+                <label for="input_path">输入路径:</label>
+                <input type="text" id="input_path" name="input_path" placeholder="PDF路径或目录" required />
+                <div class="button-group">
+                  <button type="button" id="browse_input_file">浏览文件</button>
+                  <button type="button" id="browse_input_dir">浏览目录</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="output_dir">输出目录:</label>
+                <input type="text" id="output_dir" name="output_dir" placeholder="输出目录路径" />
+                <div class="button-group">
+                  <button type="button" id="browse_output_dir">浏览目录</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="conversion-options" class="tab-content">
+            <fieldset>
+              <legend>转换选项</legend>
+              <div class="form-group">
+                <label for="pages">页码:</label>
+                <input type="text" id="pages" name="pages" placeholder="例如: first, all, 1, 2-5" value="first" />
+              </div>
+
+              <div class="form-group">
+                <label for="dpi">DPI:</label>
+                <input type="number" id="dpi" name="dpi" value="300" />
+              </div>
+
+              <div class="form-group">
+                <label for="prefix">前缀:</label>
+                <input type="text" id="prefix" name="prefix" placeholder="输出文件名前缀" />
+              </div>
+
+              <div class="form-group">
+                <label for="output_filename_template">文件名模板:</label>
+                <input type="text" id="output_filename_template" name="output_filename_template" placeholder="{pdf_name}_page_{page_num}.png" value="{pdf_name}_page_{page_num}.png" />
+              </div>
+
+              <div class="form-group">
+                <label for="post_export_action">导出后操作:</label>
+                <select id="post_export_action" name="post_export_action">
+                  <option value="open_file">打开文件</option>
+                  <option value="open_folder">打开文件夹</option>
+                  <option value="both">都打开</option>
+                  <option value="none">不执行任何操作</option>
+                </select>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="recursive" name="recursive">
+                <label for="recursive">递归处理子目录</label>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="preserve_structure" name="preserve_structure">
+                <label for="preserve_structure">保留目录结构 (递归时)</label>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="grayscale" name="grayscale">
+                <label for="grayscale">转换为灰度图</label>
+              </div>
+
+              <div class="form-group">
+                <label for="rotate">旋转角度:</label>
+                <select id="rotate" name="rotate">
+                  <option value="0">0</option>
+                  <option value="90">90</option>
+                  <option value="180">180</option>
+                  <option value="270">270</option>
+                  <option value="-90">-90</option>
+                  <option value="-180">-180</option>
+                  <option value="-270">-270</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="filter-options" class="tab-content">
+            <fieldset>
+              <legend>筛选选项</legend>
+              <div class="form-group">
+                <label for="include_keywords">包含关键字 (逗号分隔):</label>
+                <input type="text" id="include_keywords" name="include_keywords" placeholder="关键字" />
+              </div>
+
+              <div class="form-group">
+                <label for="exclude_keywords">排除关键字 (逗号分隔):</label>
+                <input type="text" id="exclude_keywords" name="exclude_keywords" placeholder="关键字" />
+              </div>
+
+              <div class="form-group">
+                <label for="regex_filter">正则表达式筛选文件名:</label>
+                <input type="text" id="regex_filter" name="regex_filter" placeholder="正则表达式" />
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="convert_button" class="primary-button">转换</button>
+          <button type="button" id="stop_button" disabled class="secondary-button">终止转换</button>
+        </div>
+      </form>
+
+      <h3>输出:</h3>
+      <div id="conversion-output"></div>
+
+      <footer class="app-footer">
+        <p>&copy; 2025 Kawaro. All rights reserved.</p>
+        <p>GitHub: <a href="https://github.com/KawaroX/Alchemist" target="_blank">KawaroX/Alchemist</a></p>
+      </footer>
+    </main>
+  </body>
+</html>

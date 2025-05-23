@@ -1,0 +1,28 @@
+
+> alchemist@0.1.0 tauri
+> tauri build
+
+     Running beforeBuildCommand `npm run build`
+
+> alchemist@0.1.0 build
+> tsc && vite build
+
+vite v6.3.5 building for production...
+transforming...
+✓ 6 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                 6.38 kB │ gzip: 1.63 kB
+dist/assets/index-CHVa-xea.css  8.25 kB │ gzip: 2.07 kB
+dist/assets/index-BfXshMZt.js   4.77 kB │ gzip: 1.89 kB
+✓ built in 90ms
+   Compiling alchemist v0.1.0 (/Users/kawarox/pdf_conversion_project/Alchemist/src-tauri)
+    Finished `release` profile [optimized] target(s) in 43.79s
+       Built application at: /Users/kawarox/pdf_conversion_project/Alchemist/src-tauri/target/release/alchemist
+    Bundling alchemist.app (/Users/kawarox/pdf_conversion_project/Alchemist/src-tauri/target/release/bundle/macos/alchemist.app)
+    Bundling alchemist_0.1.0_aarch64.dmg (/Users/kawarox/pdf_conversion_project/Alchemist/src-tauri/target/release/bundle/dmg/alchemist_0.1.0_aarch64.dmg)
+     Running bundle_dmg.sh
+    Finished 2 bundles at:
+        /Users/kawarox/pdf_conversion_project/Alchemist/src-tauri/target/release/bundle/macos/alchemist.app
+        /Users/kawarox/pdf_conversion_project/Alchemist/src-tauri/target/release/bundle/dmg/alchemist_0.1.0_aarch64.dmg
+

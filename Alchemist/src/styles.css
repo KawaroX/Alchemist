@@ -1,0 +1,517 @@
+:root {
+  /* Light mode colors */
+  --text-color: #0f0f0f;
+  --background-color: #f6f6f6;
+  --container-bg: #ffffff;
+  --container-shadow: rgba(0, 0, 0, 0.1);
+  --header-color: #333;
+  --form-bg: #fdfdfd;
+  --form-border: #e0e0e0;
+  --fieldset-border: #dcdcdc;
+  --fieldset-bg: #fff;
+  --legend-color: #555;
+  --label-color: #444;
+  --input-border: #ccc;
+  --input-bg: #fff;
+  --input-text-color: #0f0f0f;
+  --input-focus-border: #646cff;
+  --input-focus-shadow: rgba(100, 108, 255, 0.2);
+  --primary-button-bg: #646cff;
+  --primary-button-color: white;
+  --primary-button-hover-bg: #535bf2;
+  --secondary-button-bg: #e0e0e0;
+  --secondary-button-color: #333;
+  --secondary-button-hover-bg: #d0d0d0;
+  --output-border: #e0e0e0;
+  --output-bg: #fdfdfd;
+  --output-shadow: rgba(0, 0, 0, 0.05);
+  --link-color: #646cff;
+  --link-hover-color: #535bf2;
+
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Dark mode variables */
+body.dark-mode {
+  --text-color: #f6f6f6;
+  --background-color: #2f2f2f;
+  --container-bg: #3a3a3a;
+  --container-shadow: rgba(0, 0, 0, 0.3);
+  --header-color: #eee;
+  --form-bg: #4a4a4a;
+  --form-border: #555;
+  --fieldset-border: #555;
+  --fieldset-bg: #4a4a4a;
+  --legend-color: #ccc;
+  --label-color: #ccc;
+  --input-border: #666;
+  --input-bg: #555;
+  --input-text-color: #f6f6f6;
+  --input-focus-border: #24c8db;
+  --input-focus-shadow: rgba(36, 200, 219, 0.2);
+  --primary-button-bg: #24c8db;
+  --primary-button-color: #0f0f0f;
+  --primary-button-hover-bg: #1daabf;
+  --secondary-button-bg: #555;
+  --secondary-button-color: #f6f6f6;
+  --secondary-button-hover-bg: #666;
+  --output-border: #555;
+  --output-bg: #4a4a4a;
+  --output-shadow: rgba(0, 0, 0, 0.05);
+  --link-color: #24c8db;
+  --link-hover-color: #1daabf;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px var(--container-shadow);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--form-border);
+}
+
+.app-header h2 {
+  color: var(--header-color);
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: var(--secondary-button-bg);
+  color: var(--secondary-button-color);
+  border: 1px solid var(--secondary-button-bg);
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--secondary-button-hover-bg);
+  border-color: var(--secondary-button-hover-bg);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-button:active {
+  transform: translateY(0);
+}
+
+.theme-toggle-button .icon {
+  font-size: 1.3em;
+}
+
+#pdf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--form-border);
+  border-radius: 12px;
+  background-color: var(--form-bg);
+  box-shadow: 0 4px 8px var(--container-shadow);
+}
+
+/* Tabbed Interface Styles */
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--form-border);
+  border-radius: 10px;
+  background-color: var(--fieldset-bg); /* Use fieldset background for tab content area */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tab-headers {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--form-border);
+  padding: 0 20px;
+  gap: 10px;
+  background-color: var(--form-bg); /* Slightly different background for headers */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  border-radius: 0; 
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  color: var(--label-color);
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.25s, border-bottom 0.25s;
+  border-bottom: 3px solid transparent; /* For active indicator */
+  margin-bottom: -1px; /* Overlap with border-bottom of tab-headers */
+}
+
+.tab-button:hover {
+  color: var(--primary-button-bg);
+}
+
+.tab-button.active {
+  color: var(--primary-button-bg);
+  border-bottom-color: var(--primary-button-bg);
+}
+
+.tab-content {
+  display: none; /* Hidden by default */
+  padding: 20px;
+  /* fieldset styles are applied directly to the fieldset inside */
+}
+
+.tab-content.active {
+  display: block; /* Show active tab content */
+}
+
+/* Adjust fieldset and form-group for better layout within tabs */
+fieldset {
+  border: none; /* Remove fieldset border as tab-container provides it */
+  border-radius: 0; /* Remove fieldset border-radius */
+  padding: 0; /* Remove fieldset padding as tab-content provides it */
+  margin: 0;
+  background-color: transparent; /* Remove fieldset background */
+  box-shadow: none; /* Remove fieldset shadow */
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--legend-color);
+  padding: 0; /* Remove padding */
+  margin-left: 0; /* Remove margin adjustment */
+  background-color: transparent; /* Remove background */
+  border-radius: 0; /* Remove border-radius */
+  margin-bottom: 20px; /* Add margin below legend */
+  text-align: left; /* Align legend to left */
+}
+
+.form-group {
+  display: grid; /* Use grid for better alignment */
+  grid-template-columns: 150px 1fr auto; /* Label, Input, Button Group */
+  align-items: center;
+  margin-bottom: 15px; /* Slightly reduced margin */
+  gap: 10px; /* Reduced gap */
+}
+
+.form-group label {
+  text-align: right;
+  font-weight: 600;
+  color: var(--label-color);
+  padding-right: 10px; /* Add padding to separate from input */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  width: auto; /* Let grid handle width */
+  min-width: unset;
+  padding: 10px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: var(--input-bg);
+  color: var(--input-text-color);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow); /* Slightly smaller focus shadow */
+}
+
+.button-group {
+  display: flex;
+  gap: 8px; /* Slightly reduced gap */
+  justify-self: end; /* Align to the end of the grid column */
+}
+
+.form-group.checkbox-group {
+  grid-template-columns: auto 1fr; /* Checkbox, Label */
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.form-group.checkbox-group label {
+  text-align: left;
+  font-weight: 500;
+  padding-right: 0;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+  width: 18px; /* Slightly smaller checkbox */
+  height: 18px;
+  accent-color: var(--primary-button-bg);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Reduced gap */
+  margin-top: 20px; /* Reduced margin */
+}
+
+button {
+  padding: 10px 20px; /* Slightly smaller padding */
+  border-radius: 10px; /* Slightly less rounded */
+  border: 1px solid transparent;
+  font-size: 1em; /* Slightly smaller font */
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+}
+
+button:hover {
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.primary-button {
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-color);
+}
+
+.primary-button:hover {
+  background-color: var(--primary-button-hover-bg);
+  border-color: var(--primary-button-hover-bg);
+}
+
+.primary-button:active {
+  background-color: var(--primary-button-hover-bg);
+  border-color: var(--primary-button-hover-bg);
+}
+
+.secondary-button {
+  background-color: var(--secondary-button-bg);
+  color: var(--secondary-button-color);
+}
+
+.secondary-button:hover {
+  background-color: var(--secondary-button-hover-bg);
+  border-color: var(--secondary-button-hover-bg);
+}
+
+.secondary-button:active {
+  background-color: var(--secondary-button-hover-bg);
+  border-color: var(--secondary-button-hover-bg);
+}
+
+button:disabled {
+  opacity: 0.4; /* More visible disabled state */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 5vh;
+    width: 95%;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .app-header h2 {
+    font-size: 1.8em;
+  }
+
+  .theme-toggle-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #pdf-form {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .tab-headers {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    border-bottom: none;
+  }
+
+  .tab-button {
+    width: 100%;
+    border-bottom: 1px solid var(--form-border);
+    border-radius: 0;
+    text-align: center;
+  }
+
+  .tab-button.active {
+    border-bottom: 3px solid var(--primary-button-bg);
+  }
+
+  .tab-content {
+    padding: 15px;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr; /* Single column for mobile */
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 8px;
+  }
+
+  .form-group label {
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group select {
+    width: 100%;
+  }
+
+  .button-group {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  #conversion-output {
+    padding: 15px;
+  }
+
+  .app-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+}
+
+/* Log output styling */
+#conversion-output {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid var(--output-border);
+  border-radius: 8px;
+  padding: 15px;
+  background-color: var(--output-bg);
+  text-align: left;
+  box-shadow: inset 0 1px 3px var(--output-shadow);
+  min-height: 100px;
+  overflow-y: auto;
+}
+
+#conversion-output p {
+  text-align: left;
+  margin-bottom: 5px;
+  padding: 2px 0;
+  font-size: 0.9em;
+}
+
+#conversion-output .log-info {
+  color: #4CAF50;
+}
+
+#conversion-output .log-warning {
+  color: #FFC107;
+}
+
+#conversion-output .log-error {
+  color: #F44336;
+  font-weight: bold;
+}
+
+#conversion-output .log-critical {
+  color: #D32F2F;
+  font-weight: bold;
+  background-color: #FFEBEE;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#conversion-output .log-debug {
+  color: #9E9E9E;
+  font-style: italic;
+}
+
+.app-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--form-border);
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--label-color);
+}
+
+.app-footer p {
+  margin: 5px 0;
+}
+
+.app-footer a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.app-footer a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
